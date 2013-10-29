@@ -1,0 +1,264 @@
+/* Global Styles */
+
+@mainpagebackground:url('images/office-bg.jpg');
+@divisionsbackground:url('images/office-bg2.jpg');
+@ourstorybackground:url('images/office-bg3.jpg');
+@pressbackground:url('images/office-bg4.jpg');
+@valuesbackground:url('images/office-bg5.jpg');
+@locationsbackground:url('images/office-bg6.jpg');
+@contactbackground:url('images/office-bg7.jpg');
+
+@topmenufontcolor: rgba(255,255,255,.7);
+@topmenufontcolorhover: #fff;
+
+/* Front page Styles */
+
+@productnameplatebgcolor: #77848C;
+@productcopyoverlaybgcolor:rgba(255,255,255,.8);
+
+@productnameplatecolor:#dbdfe2;
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+  a {
+  	text-decoration:none;
+  }
+
+body {
+	margin:0;
+	font-size:62.5%;
+	background-color:#000;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+	background-image:@mainpagebackground;
+}
+
+body.divisions {
+	background-image:@divisionsbackground;
+}
+
+body.ourstory {
+	background-image:@ourstorybackground;
+}
+
+body.press {
+	background-image:@pressbackground;
+}
+
+body.values {
+	background-image:@valuesbackground;
+}
+
+body.locations {
+	background-image:@locationsbackground;
+}
+
+body.contact {
+	background-image:@contactbackground;
+}
+
+p {
+	font-family:'MetroNovaW01-CnLight';
+	font-size:1.1rem;
+	margin:0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight:normal;
+}
+
+.topmenubar {
+	width:100%;
+	height:42px;
+	margin-top:30px;
+}
+
+.topmenubar-left {
+	height:100%;
+	width:186px;
+	text-align:center;
+	float:left;
+	margin-left: 22px;
+}
+
+.topmenubar-left img {
+	margin-top:-18%;
+	width:100%;
+}
+
+.topmenubar-right {
+	margin-left:185px;
+	padding-left:15px;
+	height:32px;
+	padding-top:8px;
+}
+
+.topmenubar-right ul {
+	margin:0;
+}
+
+.topmenubar-right li {
+	display:inline-block;
+	margin-right:20px;
+	margin-bottom:20px;
+}
+
+.topmenubar-right li a {
+	color:@topmenufontcolor;
+	font-size:1.2rem;
+	letter-spacing:.1rem;
+	font-family:'BauerBodoniBTW01-BoldIt';
+	text-decoration:none;
+	text-transform:uppercase;
+	border-top:1px solid #999;
+	padding-top:5px;
+	padding-left:1px;
+	padding-right:1px;
+}
+
+.topmenubar-right li a:hover {
+	color:@topmenufontcolorhover;
+	border-top:1px solid #fff;
+}
+
+#mainarea {
+	width:100%;
+}
+
+.mainpage-saying {
+	font-size: 1.9rem;
+	color: #fff;
+	width: 420px;
+	font-family: 'BauerBodoniBTW01-BlackI';
+	padding-left: 55px;
+	margin-top: 220px;
+	border-top: 1px solid #fff;
+	padding-top:.8rem;
+}
+
+.mainpage-saying h2 {
+	margin:0;
+	border-bottom:1px solid #fff;
+	padding-bottom:.8rem;
+}
+
+.divisions-single {
+	width: 300px;
+	float: left;
+	margin-top: 30px;
+	margin-left:50px;
+	background-color:rgba(0,0,0,.3);
+	padding:20px;
+}
+
+.divisions-single h2,.aboutus-content h2,.press-content h2, .locations-single h2, .contact-panel h2,.contact-panel h5,.values-content h2 {
+	color:#fff;
+	font-size:1.3rem;
+	font-family:'BauerBodoniBTW01-Bold';
+	margin:0;
+	text-transform:uppercase;
+}
+
+.divisions-single p,.aboutus-content p,.press-content p,.locations-single p,.contact-panel p,.values-content p {
+	color:#fff;
+	font-size:1rem;
+	line-height: 1.4rem;
+	margin-top: 10px;
+}
+
+.aboutus-content {
+	width: 50%;
+	margin-top: 32%;
+	margin-left: 50%;
+	text-align: right;
+	padding-right: 40px;
+	background-color: rgba(0,0,0,.3);
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+}
+
+.press-content {
+	width:80%;
+	margin-top:20px;
+	margin-bottom:20px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:rgba(0,0,0,.3);
+	padding:20px;
+}
+
+.locations-single {
+	width: 300px;
+	float: left;
+	margin-top: 30px;
+	margin-right:15px;
+	background-color:rgba(0,0,0,.3);
+	padding:20px;
+}
+
+.locations-single:first-of-type {
+	margin-left:50px;
+}
+
+.contact-panel {
+	padding:20px;
+	width:220px;
+	background-color:rgba(0,0,0,.3);
+	width: 22%;
+	margin-left: 11%;
+	margin-top: 64px;
+}
+
+.contact-panel h5 {
+	font-size:1.2em;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.contact-panel p{
+	margin-bottom:15px;
+}
+
+.values-content {
+	width: 50%;
+	margin-top: 5%;
+	margin-left: 50%;
+	text-align: right;
+	padding-right: 40px;
+	background-color: rgba(0,0,0,.3);
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+}
+
+.blog-content-single {
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:rgba(0,0,0,.3);
+	padding:25px;
+	margin-top:35px;
+}
+
+.blog-content-single h2 {
+	color:#fff;
+	font-size:1.3rem;
+	font-family:'BauerBodoniBTW01-Bold';
+	margin:0;
+	margin-bottom:20px;
+}
+
+.blog-content-single p {
+	color:#fff;
+	font-size:1rem;
+	margin-bottom:10px;
+	line-height:1.35rem;
+}
