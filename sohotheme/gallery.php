@@ -40,9 +40,15 @@ $temp = $wp_query;
   while ($wp_query->have_posts()) : $wp_query->the_post();				
 		?>
 			<div class="gallery-single">
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+				<a href="<?php the_permalink(); ?>">
+                                <div class="gallery-single-image">
+                                      <?php the_post_thumbnail(); ?>
+                                </div>
+                                </a>
 				<h3><?php the_title(); ?></h3>
-				<?php the_excerpt(); ?>
+                                <?php if (get_the_content()) { ?>
+				<p><?php echo substr(get_the_excerpt(),0,60); ?>...</p>
+                                <?php } ?>
 				<a href="<?php the_permalink(); ?>"><div class="morebutton">Read More</div></a>
 			</div>
 		<?php endwhile; ?>

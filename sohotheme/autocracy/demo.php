@@ -36,11 +36,7 @@ $meta_boxes[] = array(
     'priority' => 'high',
     // List of meta fields
     'fields' => array(
-        array(
-            'name' => 'Box Faded Background Color',
-            'id' => 'boxcolor',
-            'type' => 'text',
-        ),
+        
     ),
     );
 
@@ -91,6 +87,63 @@ $meta_boxes[] = array(
         array(
             'name' => 'Link to Demo',
             'id' => 'linktowebsite',
+            'type' => 'text',
+        ),
+        array(
+            'name'             => 'Images',
+            'id'               => "imagegallery",
+            'type'             => 'plupload_image',
+            'max_file_uploads' => 20,
+            ),
+    ),
+    );
+
+$meta_boxes[] = array(
+    // Meta box id, UNIQUE per meta box. Optional since 4.1.5
+    'id' => 'contactinfo',
+    // Meta box title - Will appear at the drag and drop handle bar. Required.
+    'title' => 'Contact Info',
+    // Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
+    'pages' => array('contactinfo'),
+    // Where the meta box appear: normal (default), advanced, side. Optional.
+    'context' => 'normal',
+    // Order of meta box: high (default), low. Optional.
+    'priority' => 'high',
+    // List of meta fields
+    'fields' => array(
+        array(
+            'name' => 'Header Text',
+            'id' => 'contactheader',
+            'type' => 'text',
+        ),
+        array(
+            'name' => 'Contact Name',
+            'id' => 'contact1',
+            'type' => 'text',
+        ),
+        array(
+            'name' => 'Contact Address',
+            'id' => 'contact2',
+            'type' => 'text',
+        ),
+        array(
+            'name' => 'Contact City State Zip',
+            'id' => 'contact3',
+            'type' => 'text',
+        ),
+        array(
+            'name' => 'Contact Telephone',
+            'id' => 'contact4',
+            'type' => 'text',
+        ),
+        array(
+            'name' => 'Contact Fax',
+            'id' => 'contact5',
+            'type' => 'text',
+        ),
+        array(
+            'name' => 'Contact Email',
+            'id' => 'contact6',
             'type' => 'text',
         ),
     ),

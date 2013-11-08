@@ -32,4 +32,26 @@ $(document).ready(function(){
 		$(this).find('.sub-menu').css('display','none');
 		$(this).find('.special-bar').animate({'width':'30px'},300);
 	});
+
+        $('.single-service h2').click(function(){
+           if ($(this).parent().find('.services-information').css('display') == 'none') {
+             $(this).parent().find('.services-information').fadeIn(500);
+           }
+           else {
+              $(this).parent().find('.services-information').fadeOut(500); 
+           }
+        });
+
+        $('.image-gallery-left').click(function(){
+                $('.image-gallery-wrapper').animate({'margin-left':'+=170px'},300);
+        });
+
+        $('.image-gallery-right').click(function(){
+                $('.image-gallery-wrapper').animate({'margin-left':'-=170px'},300);
+        });
+
+        $('.portfolio-image-container img').click(function(){
+             var source = $(this).attr('src');
+             $(this).parent().parent().parent().parent().children('img').attr('src',source);
+        });
 });

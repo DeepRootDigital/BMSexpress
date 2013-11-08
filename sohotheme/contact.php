@@ -10,15 +10,25 @@
 		<div id="contact-page-map">
 		</div>
 		<div class="contact-info">
-			<h3>Contact Info</h3>
+<?php 
+		$args=array(
+			'post_type' => 'contactinfo'
+		);
+
+		$blogPosts = new WP_Query($args);
+
+		while ($blogPosts->have_posts()) : $blogPosts->the_post();
+		?>
+			<h3><?php echo get_post_meta(get_the_ID(), 'contactheader', true) ?></h3>
 			<h4>SED UT PERSPICIATIS UNDE OMNIS ISTE NATUS ERROR SIT VOLUPTATEM ACCUSANTIUM DOLOREMQUE LAUDANTIUM, TOTAM REM APERIAM.</h4>
-			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque la udantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.</p>
-			<p><span>The Company Name Inc.<br />
-			9870 St Vincent Place,<br />
-			Glasgow, DC 45 Fr 45.</span><br />
-			Telephone: +1 800 603 6035<br />
-			FAX: +1 800 889 9898<br />
-			E-mail: <a href="">mail@demolink.org</a></p>
+			<p><?php echo get_the_content(); ?></p>
+			<p><span><?php echo get_post_meta(get_the_ID(), 'contact1', true) ?><br />
+			<?php echo get_post_meta(get_the_ID(), 'contact2', true) ?><br />
+			<?php echo get_post_meta(get_the_ID(), 'contact3', true) ?></span><br />
+			Telephone: <?php echo get_post_meta(get_the_ID(), 'contact4', true) ?><br />
+			FAX: <?php echo get_post_meta(get_the_ID(), 'contact5', true) ?><br />
+			E-mail: <a href="mailto:<?php echo get_post_meta(get_the_ID(), 'contact6', true) ?>"><?php echo get_post_meta(get_the_ID(), 'contact6', true) ?></a></p>
+<?php endwhile; ?>
 		</div>
 		<div class="contact-form">
 			<h3>Contact Form</h3>

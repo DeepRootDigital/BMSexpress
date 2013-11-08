@@ -2,18 +2,24 @@
 	<div class="useful-links">
 		<h4>Useful Links</h4>
 		<ul>
-			<li>Sertas Derose</li>
-			<li>Taserala Miases</li>
-			<li>Mertae Nekastreas</li>
-			<li>Verode Fase Laiaisua</li>
-			<li>Avertelero Ferose</li>
-			<li>Taserto Yndolase</li>
-			<li>Mertaeory Uisyase</li>
-			<li>Verode Fertase</li>
+<?php 
+			$args=array(
+				'post_type' => 'usefullinks',
+				'showposts' => 8
+				);
+
+			$blogPosts = new WP_Query($args);
+
+			while ($blogPosts->have_posts()) : $blogPosts->the_post();
+			?>
+			<a href="<?php echo get_the_content(); ?>"><li><?php the_title(); ?></li></a>
+<?php endwhile; ?>
 		</ul>
+<!--
 		<a href="" class="morebutton">
 		More
 		</a>
+-->
 	</div>
 	<div class="newfaces">
 		<h4>New Faces</h4>
@@ -28,7 +34,11 @@
 
 			while ($blogPosts->have_posts()) : $blogPosts->the_post();
 			?>
-			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+			<a href="<?php the_permalink(); ?>">
+                        <div class="newfaces-single">
+                              <?php the_post_thumbnail(); ?>
+                        </div>
+                        </a>
 			<?php endwhile; ?>
 		</div>
 		<a href="http://express.businessonmarketst.com/wp/soho/gallery/" class="viewall">View All</a>
@@ -43,29 +53,42 @@
 		</form>
 	</div>
 	<div class="footer-contact">
-		<img src="<?php echo get_template_directory_uri(); ?>/images/widgets_logo.png" />
-		<p>28 Jackson Blvd Ste 1020</p>
-		<p><span>Chicago, IL</span></p>
-		<p>60604-2340</p>
+		<h4>Badri Kermani</h4>
+                <?php 
+		$args=array(
+			'post_type' => 'contactinfo'
+		);
+
+		$blogPosts = new WP_Query($args);
+
+		while ($blogPosts->have_posts()) : $blogPosts->the_post();
+		?>
+		<p><?php echo get_post_meta(get_the_ID(), 'contact2', true) ?></p>
+		<p><span><?php echo get_post_meta(get_the_ID(), 'contact3', true) ?></span></p>
+		<p><?php echo get_post_meta(get_the_ID(), 'contact4', true) ?></p>
+                
 		<div class="box-divider">
 		</div>
-		<a href="" class="email">infodemolink.org</a>
+		<a href="mailto:<?php echo get_post_meta(get_the_ID(), 'contact6', true) ?>" class="email"><?php echo get_post_meta(get_the_ID(), 'contact6', true) ?></a>
+                <?php endwhile; ?>
 	</div>
 </div>
 <div class="page-divider">
 </div>
 <div class="footer">
 	<div class="footer-left">
-		<a href="http://express.businessonmarketst.com/wp/soho/"><img src="<?php echo get_template_directory_uri(); ?>/images/widgets_logo.png" /></a>
-		<p>&copy;2013&middot;Privacy Policy</p>
+		<a href="http://express.businessonmarketst.com/wp/soho/"><h4>Badri <br />Kermani</h4></a>
+		<p>&copy;2013&middot;Privacy Policy&middot;<a href="http://www.businessonmarketst.com/" target="_blank">Developed by Business on Market St.</a></p>
 	</div>
 	<div class="footer-right">
 		<ul>
-			<li><a href="">Facebook</a></li>
+			<li><a href="https://www.facebook.com/BadriKermaniHairstylist" target="_blank">Facebook</a></li>
 			<li>&middot;</li>
-			<li><a href="">Twitter</a></li>
+			<li><a href="https://twitter.com/KermaniB" target="_blank">Twitter</a></li>
 			<li>&middot;</li>
-			<li><a href="">Flickr</a></li>
+			<li><a href="http://www.pinterest.com/bkermanistylist/" target="_blank">Pinterest</a></li>
+                        <li>&middot;</li>
+			<li><a href="http://instagram.com/badri_kermani" target="_blank">Instagram</a></li>
 		</ul>
 	</div>
 </div>
@@ -99,7 +122,7 @@ function mapinitialize() {
     zoom: 17,
     mapTypeControl: false,
 streetViewControl: false,
-    center: new google.maps.LatLng(32.830567,-117.150843),
+    center: new google.maps.LatLng(32.997021,-117.272079),
     mapTypeControlOptions: {
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
     }
@@ -107,8 +130,8 @@ streetViewControl: false,
   var map = new google.maps.Map(document.getElementById('contact-page-map'),
     mapOptions);
 
-var contentString = '<div id="mapcontent">'+'<div class="mapcontent-text">'+'<p><span>Business on Market St</span></p>'+
-'<p>7975 Raytheon RD Suite 310</p>'+'<p>San Diego, CA 92115</p>'+'<p>P // 858.598.5477</p>'+'</div>'+'<img src="http://businessonmarketst.com/wp-content/themes/BusinessonThemeStreet/images/map-content-image.png">'+'</div>';
+var contentString = '<div id="mapcontent">'+'<div class="mapcontent-text">'+'<p><span>Badri Kermani</span></p>'+
+'<p>406 North Cedros Ave</p>'+'<p>Solana Beach, CA 92075</p>'+'<p>P // 619.886.5482</p>'+'</div>'+'</div>';
 
 var infowindow = new google.maps.InfoWindow({
 content: contentString
@@ -119,8 +142,8 @@ content: contentString
   map.mapTypes.set('map_style', styledMap);
   map.setMapTypeId('map_style');
 
-var image = 'http://businessonmarketst.com/wp-content/themes/BusinessonThemeStreet/images/BMS_Map_Icon.png';
-  var myLatLng = new google.maps.LatLng(32.830567,-117.150843);
+var image = 'http://express.businessonmarketst.com/wp/soho/wp-content/themes/sohotheme/images/map_pin.png';
+  var myLatLng = new google.maps.LatLng(32.997021,-117.272079);
   var bmsmarker = new google.maps.Marker({
       position: myLatLng,
       map: map,

@@ -13,7 +13,13 @@
 
 				while ($blogPosts->have_posts()) : $blogPosts->the_post();
 				?>
-				<li><?php the_post_thumbnail(); ?></li>
+				<li>
+                                     <?php the_post_thumbnail(); ?>
+                                     <div class="slider-textarea">
+                                         <h2><?php the_title(); ?></h2>
+                                         <?php the_content(); ?>
+                                     </div>
+                                </li>
 				<?php endwhile; ?>
 			</ul>
 		</div>
@@ -23,7 +29,8 @@
 	<div class="featuredclients">
 		<?php 
 				$args=array(
-				'post_type' => 'featuredclients'
+				'post_type' => 'featuredclients',
+                                'posts_per_page' => 6
 				);
 
 			$blogPosts = new WP_Query($args);
@@ -31,9 +38,9 @@
 			while ($blogPosts->have_posts()) : $blogPosts->the_post();
 		?>
 			<div class="featuredclient">
-				<div class="featuredclient-image">
-					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
-				</div>
+				<a href="<?php the_permalink(); ?>"><div class="featuredclient-image">
+					<?php the_post_thumbnail(); ?>
+				</div></a>
 				<h4><?php the_title(); ?></h4>
 				<p><?php echo get_the_date(); ?></p>
 				<a href="<?php the_permalink(); ?>" class="featuredclient-link">

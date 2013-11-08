@@ -35,6 +35,28 @@ function autoc_get_img($id) {
 	}
 
 }
+function autoc_get_portfolio_img($id) {
+	global $wpdb;
+	$images = get_post_meta( get_the_ID(), $id, false );
+	$images = implode( ',' , $images );
+
+// Re-arrange images with 'menu_order'
+	$images = $wpdb->get_col( "
+		SELECT ID FROM {$wpdb->posts}
+		WHERE post_type = 'attachment'
+		AND ID in ({$images})
+		ORDER BY menu_order ASC
+		" );
+
+	foreach ( $images as $att )
+	{
+    // Get image's source based on size, can be 'thumbnail', 'medium', 'large', 'full' or registed post thumbnails sizes
+		$src = wp_get_attachment_image_src( $att, 'full' );
+		$src = $src[0];
+    // Show image
+		echo "<div class='portfolio-image-container'><img src='{$src}' /></div>";
+	}
+}
 
 /**
  * Register our sidebars and widgetized areas.
@@ -63,7 +85,7 @@ function create_post_type() {
 		'public' => true,
 		'has_archive' => false,
 		'rewrite' => array('slug' => 'frontpageslider'),
-		'supports' => array('title','thumbnail')
+		'supports' => array('title','editor','thumbnail')
 		)
 	);
 	register_post_type('featuredclients', array(
@@ -89,6 +111,17 @@ function create_post_type() {
 		'supports' => array('title','editor','thumbnail')
 		)
 	);
+        register_post_type('services', array(
+		'labels' => array(
+			'name' => __('Services'),
+			'singular_name' => __('Service')
+			),
+		'public' => true,
+		'has_archive' => false,
+		'rewrite' => array('slug' => 'services'),
+		'supports' => array('title','editor')
+		)
+	);
 	register_post_type('faqs', array(
 		'labels' => array(
 			'name' => __('faqs'),
@@ -109,6 +142,28 @@ function create_post_type() {
 		'has_archive' => false,
 		'rewrite' => array('slug' => 'newsevents'),
 		'supports' => array('title','editor','thumbnail')
+		)
+	);
+        register_post_type('contactinfo', array(
+		'labels' => array(
+			'name' => __('Contact Page'),
+			'singular_name' => __('Contact Page')
+			),
+		'public' => true,
+		'has_archive' => false,
+		'rewrite' => array('slug' => 'contactpage'),
+		'supports' => array('title','editor')
+		)
+	);
+        register_post_type('usefullinks', array(
+		'labels' => array(
+			'name' => __('Useful Links'),
+			'singular_name' => __('Useful Link')
+			),
+		'public' => true,
+		'has_archive' => false,
+		'rewrite' => array('slug' => 'usefullinks'),
+		'supports' => array('title','editor')
 		)
 	);
 }

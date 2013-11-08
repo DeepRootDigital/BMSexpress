@@ -3,8 +3,19 @@
 	<div class="featuredclient-single-area">
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<div class="featuredclient-single">
+<div class="featuredclient-left">
 			<h2><?php the_title(); ?></h2>
 			<?php the_post_thumbnail(); ?>
+<div class="image-gallery-thumbnails">
+<div class="image-gallery-wrapper">
+<?php autoc_get_portfolio_img('imagegallery'); ?>
+</div>
+<div class="image-gallery-left">
+</div>
+<div class="image-gallery-right">
+</div>
+</div>
+</div>
 			<div class="featuredclient-single-right">
 				<div class="featuredclient-single-profile">
 					<h4><span>Client:</span> <?php the_title(); ?></h4>
