@@ -1,0 +1,18 @@
+/*
+Theme Name: Soho Badri Theme
+Theme URI: http://wordpress.org/
+Description: This is a BMS Express theme.
+Author: Paul McMahon
+Author URI: http://wordpress.org/
+Version: 1.1
+Tags: 
+
+License:
+License URI:
+
+General comments (optional).
+*/
+
+.blog-content-single img {
+max-width:100%;
+}
